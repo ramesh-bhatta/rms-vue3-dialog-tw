@@ -1,11 +1,11 @@
-# rms-vue3-confirm-dialog
+# rms-vue3-dialog-tw
 
 A simple, customizable Vue 3 confirmation dialog component built with Vue 3 and Tailwind CSS.
 
 # 📦 Installation
 
 ```
-npm install rms-vue3-confirm-dialog-tw
+npm install @rms/vue3-dialog-tw
 ```
 
 # 📝 Usage Example
@@ -16,7 +16,7 @@ Here’s how to use both dialogs in your components:
 
 ```vue
 <script setup>
-import { showConfirmDialog } from 'rms-vue3-confirm-dialog-tw'
+import { showConfirmDialog } from '@rms/vue3-dialog-tw'
 
 async function openConfirmDialog() {
   const result = await showConfirmDialog({
@@ -39,7 +39,7 @@ async function openConfirmDialog() {
 
 ```vue
 <script setup>
-import { showNotificationDialog } from 'rms-vue3-confirm-dialog-tw'
+import { showNotificationDialog } from '@rms/vue3-dialog-tw'
 
 async function openNotificationDialog() {
   const result = await showNotificationDialog({
@@ -61,7 +61,7 @@ async function openNotificationDialog() {
 
 ```vue
 <script setup>
-import { showNotificationDialog } from 'rms-vue3-confirm-dialog-tw'
+import { showNotificationDialog } from '@rms/vue3-dialog-tw'
 
 async function openNotificationDialogManual() {
   const result = await showNotificationDialog({
@@ -126,7 +126,7 @@ The following props are available for the NotificationDialog component:
 The library is styled with Tailwind CSS. Make sure Tailwind is installed and configured in your project. Also, include the confirmation dialog's CSS:
 
 ```
-import 'rms-vue3-confirm-dialog-tw/dist/rms-vue3-confirm-dialog.css';
+import '@rms/vue3-dialog-tw/dist/rms-vue3-dialog-tw.css';
 ```
 
 # 💻 Customize the Dialog

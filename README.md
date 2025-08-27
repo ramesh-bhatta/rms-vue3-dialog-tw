@@ -5,7 +5,7 @@ A simple, customizable Vue 3 confirmation dialog component built with Vue 3 and 
 # 📦 Installation
 
 ```
-npm install @rms/vue3-dialog-tw
+npm install @rmsjs/vue3-dialog-tw
 ```
 
 # 📝 Usage Example
@@ -16,7 +16,7 @@ Here’s how to use both dialogs in your components:
 
 ```vue
 <script setup>
-import { showConfirmDialog } from '@rms/vue3-dialog-tw'
+import { showConfirmDialog } from '@rmsjs/vue3-dialog-tw'
 
 async function openConfirmDialog() {
   const result = await showConfirmDialog({
@@ -39,7 +39,7 @@ async function openConfirmDialog() {
 
 ```vue
 <script setup>
-import { showNotificationDialog } from '@rms/vue3-dialog-tw'
+import { showNotificationDialog } from '@rmsjs/vue3-dialog-tw'
 
 async function openNotificationDialog() {
   const result = await showNotificationDialog({
@@ -61,7 +61,7 @@ async function openNotificationDialog() {
 
 ```vue
 <script setup>
-import { showNotificationDialog } from '@rms/vue3-dialog-tw'
+import { showNotificationDialog } from '@rmsjs/vue3-dialog-tw'
 
 async function openNotificationDialogManual() {
   const result = await showNotificationDialog({
@@ -87,24 +87,29 @@ You can customize the title, message, and button text via props.
 
 # 🔧 Props for showConfirmDialog
 
-The following props are available for the ConfirmDialog component:
-
 ## Props
 
 The following props are available for the `ConfirmDialog` component:
 
 - **`title`** (String, default: `""`): The title displayed in the dialog.
 - **`message`** (String, default: `""`): The message/content displayed in the dialog.
+- **`titleClass`** (String, default: `""`): Custom CSS classes for the title.
+- **`messageClass`** (String, default: `""`): Custom CSS classes for the message.
 - **`btnConfirmText`** (String, default: `"OK"`): The text for the confirm button.
 - **`btnCancelText`** (String, default: `"Cancel"`): The text for the cancel button.
+  // The following two props are handled internally by the library and do not need to be provided by users unless you want custom output:
+  // **`onConfirm`** (Function): Callback for confirm action (internal use).
+  // **`onCancel`** (Function): Callback for cancel action (internal use).
 - **`dialogBoxMinWidth`** (String, default: `"300px"`): Minimum width for the dialog box.
-- **`dialogBoxClasses`** (String, default: ""): Custom CSS classes for the dialog box (you can modify this for styling).
+- **`dialogBoxClasses`** (String, default: ""): Custom CSS classes for the dialog box.
 - **`btnConfirmClasses`** (String, default: `"bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"`): Custom CSS classes for the confirm button.
 - **`btnCancelClasses`** (String, default: `"bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"`): Custom CSS classes for the cancel button.
+- **`closeIconClasses`** (String, default: ""): Custom CSS classes for the close icon.
 - **`showCloseIcon`** (Boolean, default: `true`): If `true`, a close button will be shown in the top-right corner of the dialog.
-- **`closeIconClasses`** (String, default: ""): Custom CSS classes for the close icon (for styling the close button/icon).
 - **`btnConfirmRes`** (String|Boolean, default: `true`): The response for the confirm button.
 - **`btnCancelRes`** (String|Boolean, default: `false`): The response for the cancel button.
+- **`timer`** (Number, default: `0`): Time in milliseconds before the dialog auto-closes. If `0`, dialog will not auto-close.
+- **`disableAutoClose`** (Boolean, default: `false`): If `true`, disables auto-close behavior.
 
 # 🔧 Props for showNotificationDialog
 
@@ -126,7 +131,7 @@ The following props are available for the NotificationDialog component:
 The library is styled with Tailwind CSS. Make sure Tailwind is installed and configured in your project. Also, include the confirmation dialog's CSS:
 
 ```
-import '@rms/vue3-dialog-tw/dist/rms-vue3-dialog-tw.css';
+import '@rmsjs/vue3-dialog-tw/dist/rms-vue3-dialog-tw.css';
 ```
 
 # 💻 Customize the Dialog

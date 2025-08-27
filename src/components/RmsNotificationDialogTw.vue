@@ -30,7 +30,7 @@ const props = defineProps({
   dialogBoxClasses: { type: String, default: '' },
   closeIconClasses: { type: String, default: '' },
   showCloseIcon: { type: Boolean, default: true },
-  timer: { type: Number, default: null },
+  timer: { type: Number, default: 3000 },
   disableAutoClose: { type: Boolean, default: false },
 })
 

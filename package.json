@@ -1,6 +1,6 @@
 {
   "name": "@rmsjs/vue3-dialog-tw",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A VueJs(Vue3) component library for creating confirm/notification dialog.",
   "author": "Ramesh Bhatta(mail.rmes@gmail.com)",
   "repository": "https://github.com/ramesh-bhatta/rms-vue3-dialog-tw",

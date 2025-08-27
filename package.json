@@ -1,0 +1,70 @@
+{
+  "name": "rms-vue3-confirm-dialog-tw",
+  "version": "1.0.5",
+  "description": "A VueJs(Vue3) component library for creating confirm dialog.",
+  "author": "Ramesh Bhatta(mail.rmes@gmail.com)",
+  "repository": "https://github.com/ramesh-bhatta/rms-vue3-confirm-dialog",
+  "private": false,
+  "type": "module",
+  "main": "dist/rms-vue3-confirm-dialog.umd.js",
+  "module": "dist/rms-vue3-confirm-dialog.es.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
+    "lint:eslint": "eslint . --fix",
+    "lint": "run-s lint:*",
+    "format": "prettier --write src/"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13",
+    "tailwindcss": "^3.3.5",
+    "postcss": "^8.4.31"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.20.1",
+    "eslint-plugin-oxlint": "^0.15.10",
+    "eslint-plugin-vue": "^9.32.0",
+    "npm-run-all2": "^7.0.2",
+    "oxlint": "^0.15.10",
+    "prettier": "^3.5.1",
+    "vite": "^6.1.1",
+    "vite-plugin-vue-devtools": "^7.7.2"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "component",
+    "dialog",
+    "confirm",
+    "Vue.js",
+    "modal",
+    "popup",
+    "confirmation",
+    "confirmation-dialog",
+    "vue-modal",
+    "vue-confirm",
+    "vue-component",
+    "vue-confirmation-dialog",
+    "vue3-plugin",
+    "vue-ui",
+    "vue-dialog-box",
+    "vue3-modal",
+    "lightweight-dialog",
+    "vue3-component-library",
+    "vue3-ui",
+    "vue3-popup",
+    "vue-plugin",
+    "vue-confirmation-popup"
+  ],
+  "license": "MIT"
+}

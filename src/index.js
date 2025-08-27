@@ -1,10 +1,19 @@
-import ConfirmDialogTw from './components/ConfirmDialogTw.vue';
-import { showDialogTw } from './useDialogTw.js'; // Import the function
+
+import './assets/main.css';
+import RmsConfirmDialogTw from './components/RmsConfirmDialogTw.vue';
+import RmsNotificationDialogTw from './components/RmsNotificationDialogTw.vue';
+import { showConfirmDialog, showNotificationDialog } from './useDialogTw.js';
 
 export default {
   install(app) {
-    app.component('ConfirmDialogTw', ConfirmDialogTw);
+    app.component('RmsConfirmDialogTw', RmsConfirmDialogTw);
+    app.component('RmsNotificationDialogTw', RmsNotificationDialogTw);
   },
 };
 
-export { ConfirmDialogTw, showDialogTw }; // Export both
+export {
+  RmsConfirmDialogTw,
+  RmsNotificationDialogTw,
+  showConfirmDialog,
+  showNotificationDialog
+};

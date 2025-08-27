@@ -18,19 +18,25 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.js",
-      name: "ConfirmDialog",
-      fileName: (format) => `rms-vue3-confirm-dialog.${format}.js`,
+      name: "DialogTw", // updated name
+      fileName: (format) => `rms-vue3-dialog-tw.${format}.js`, // updated filename
     },
     rollupOptions: {
       external: [
-        'vue', 'bulma'
+        'vue', 'tailwindcss'
       ],
       output: {
         globals: {
           vue: 'Vue',
-          'bulma': 'Bulma'
+          tailwindcss: 'tailwindcss'
         },
         exports: 'named',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'rms-vue3-dialog-tw.css'; // updated CSS filename
+          }
+          return '[name][extname]';
+        },
       },
     },
   }

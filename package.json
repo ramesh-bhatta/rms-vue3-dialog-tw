@@ -1,13 +1,13 @@
 {
-  "name": "rms-vue3-confirm-dialog-tw",
-  "version": "1.0.5",
+  "name": "@rms/vue3-dialog-tw",
+  "version": "1.0.0",
   "description": "A VueJs(Vue3) component library for creating confirm dialog.",
   "author": "Ramesh Bhatta(mail.rmes@gmail.com)",
   "repository": "https://github.com/ramesh-bhatta/rms-vue3-confirm-dialog",
   "private": false,
   "type": "module",
-  "main": "dist/rms-vue3-confirm-dialog.umd.js",
-  "module": "dist/rms-vue3-confirm-dialog.es.js",
+  "main": "dist/rms-vue3-dialog-tw.umd.js",
+  "module": "dist/rms-vue3-dialog-tw.es.js",
   "files": [
     "dist"
   ],
@@ -21,9 +21,9 @@
     "format": "prettier --write src/"
   },
   "peerDependencies": {
-    "vue": "^3.5.13",
+    "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
-    "postcss": "^8.4.31"
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",

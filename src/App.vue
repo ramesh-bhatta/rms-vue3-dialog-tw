@@ -1,14 +1,14 @@
 <script setup>
-import { showDialogTw } from '@/useDialogTw';
+import { showConfirmDialog, showNotificationDialog } from '@/useDialogTw';
 
 async function openConfirmDialog() {
   try {
-    const result = await showDialogTw({
+    const result = await showConfirmDialog({
       title: 'Delete Item?',
       message: 'Are you sure you want to delete this item?',
       btnConfirmText: 'Yes, Delete',
       btnCancelText: 'Cancel',
-      showCloseIcon: true,
+      showCloseIcon: true
     });
 
     console.log('User confirmed:', result);
@@ -16,9 +16,32 @@ async function openConfirmDialog() {
     console.log('User canceled:', error.message);
   }
 }
+
+async function openNotificationDialog() {
+  try {
+    const result = await showNotificationDialog({
+      title: '',
+      titleClass: 'text-primary',
+      message: 'This is a notification message.',
+      messageClass: 'text-secondary',
+      timer: 3000,
+      showCloseIcon: true,
+      disableAutoClose: true //by default its false always
+    });
+
+    console.log('Notification closed:', result);
+  } catch (error) {
+    console.log('Notification error:', error.message);
+  }
+}
+
 </script>
 
 <template>
-  <h1 class="bg-primary text-white">Confirmation Dialog Example</h1>
-  <button @click="openConfirmDialog">Open Confirm Dialog</button>
+  <div class="flex flex-col items-center justify-center min-h-screen gap-2">
+    <button class="bg-primary rounded-lg p-2 mb-2 w-64 text-white" @click="openConfirmDialog">Open Confirm
+      Dialog</button>
+    <button class="bg-primary rounded-lg p-2 w-64 text-white" @click="openNotificationDialog">Open Notification
+      Dialog</button>
+  </div>
 </template>

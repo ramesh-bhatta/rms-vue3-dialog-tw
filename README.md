@@ -5,47 +5,87 @@ A simple, customizable Vue 3 confirmation dialog component built with Vue 3 and 
 # 📦 Installation
 
 ```
-npm install rms-vue3-confirm-dialog
+npm install rms-vue3-confirm-dialog-tw
 ```
 
 # 📝 Usage Example
 
-Here’s a simple example of how to use the dialog in your components:
+Here’s how to use both dialogs in your components:
 
-```
-<template>
-  <button class="bg-blue-600 text-white px-4 py-2 rounded" @click="openDialog">Primary</button>
-</template>
+## Confirmation Dialog Example
 
+```vue
 <script setup>
-import 'rms-vue3-confirm-dialog-tw/dist/rms-vue3-confirm-dialog.css'
-import { showDialog } from 'rms-vue3-confirm-dialog-tw'
+import { showConfirmDialog } from 'rms-vue3-confirm-dialog-tw'
 
-async function openDialog() {
-  try {
-    const result = await showDialog({
-      title: 'Are you sure?',
-      message: 'Do you really want to continue?',
-      btnConfirmText: 'Save',
-      btnCancelText: 'Cancel'
-    })
-    console.log('User confirmed with:', result)
-    // proceed with the action
-  } catch (err) {
-    console.warn('User canceled or something went wrong:', err)
-    // handle cancellation or error
-  }
+async function openConfirmDialog() {
+  const result = await showConfirmDialog({
+    title: 'Delete Item?',
+    message: 'Are you sure you want to delete this item?',
+    btnConfirmText: 'Yes, Delete',
+    btnCancelText: 'Cancel',
+    showCloseIcon: true,
+  })
+  console.log('User confirmed:', result)
 }
 </script>
+
+<template>
+  <button @click="openConfirmDialog">Open Confirm Dialog</button>
+</template>
+```
+
+## Notification Dialog Example (Autoclose)
+
+```vue
+<script setup>
+import { showNotificationDialog } from 'rms-vue3-confirm-dialog-tw'
+
+async function openNotificationDialog() {
+  const result = await showNotificationDialog({
+    title: 'Notification',
+    message: 'This is a notification message.',
+    timer: 5000, // closes after 5 seconds
+    showCloseIcon: true,
+  })
+  console.log('Notification closed:', result)
+}
+</script>
+
+<template>
+  <button @click="openNotificationDialog">Open Notification Dialog</button>
+</template>
+```
+
+## Notification Dialog Example (Manual Close)
+
+```vue
+<script setup>
+import { showNotificationDialog } from 'rms-vue3-confirm-dialog-tw'
+
+async function openNotificationDialogManual() {
+  const result = await showNotificationDialog({
+    title: 'Manual Notification',
+    message: 'This notification will not autoclose.',
+    disableAutoClose: true,
+    showCloseIcon: true,
+  })
+  console.log('Notification closed:', result)
+}
+</script>
+
+<template>
+  <button @click="openNotificationDialogManual">Open Manual Notification Dialog</button>
+</template>
 ```
 
 # 💡 How it works:
 
-showDialog() opens the confirmation dialog.
+showConfirmDialog() opens the confirmation dialog.
 The dialog returns a Promise. If the user clicks Confirm, the promise resolves with true. If they click Cancel or close the dialog, the promise resolve to null.
 You can customize the title, message, and button text via props.
 
-# 🔧 Props for showDialog
+# 🔧 Props for showConfirmDialog
 
 The following props are available for the ConfirmDialog component:
 
@@ -57,13 +97,29 @@ The following props are available for the `ConfirmDialog` component:
 - **`message`** (String, default: `""`): The message/content displayed in the dialog.
 - **`btnConfirmText`** (String, default: `"OK"`): The text for the confirm button.
 - **`btnCancelText`** (String, default: `"Cancel"`): The text for the cancel button.
+- **`dialogBoxMinWidth`** (String, default: `"300px"`): Minimum width for the dialog box.
+- **`dialogBoxClasses`** (String, default: ""): Custom CSS classes for the dialog box (you can modify this for styling).
+- **`btnConfirmClasses`** (String, default: `"bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"`): Custom CSS classes for the confirm button.
+- **`btnCancelClasses`** (String, default: `"bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"`): Custom CSS classes for the cancel button.
+- **`showCloseIcon`** (Boolean, default: `true`): If `true`, a close button will be shown in the top-right corner of the dialog.
+- **`closeIconClasses`** (String, default: ""): Custom CSS classes for the close icon (for styling the close button/icon).
 - **`btnConfirmRes`** (String|Boolean, default: `true`): The response for the confirm button.
 - **`btnCancelRes`** (String|Boolean, default: `false`): The response for the cancel button.
-- **`dialogBoxMinWidth`** (String, default: `"300px"`): Minimum width for the dialog box.
-- **`dialogBoxClasses`** (String, default: `"has-background-primary"`): Custom CSS classes for the dialog box (you can modify this for styling).
-- **`btnConfirmClasses`** (String, default: `"is-primary is-outlined"`): Custom CSS classes for the confirm button.
-- **`btnCancelClasses`** (String, default: `"is-danger is-outlined"`): Custom CSS classes for the cancel button.
+
+# 🔧 Props for showNotificationDialog
+
+The following props are available for the NotificationDialog component:
+
+## Props
+
+- **`title`** (String, default: ""): The title displayed in the dialog.
+- **`message`** (String, default: ""): The message/content displayed in the dialog.
+- **`timer`** (Number, default: `null`): Time in milliseconds before the dialog auto-closes. If not set, dialog will not auto-close unless `disableAutoClose` is false.
+- **`disableAutoClose`** (Boolean, default: `false`): If `true`, disables auto-close behavior.
 - **`showCloseIcon`** (Boolean, default: `true`): If `true`, a close button will be shown in the top-right corner of the dialog.
+- **`closeIconClasses`** (String, default: ""): Custom CSS classes for the close icon (for styling the close button/icon).
+- **`dialogBoxMinWidth`** (String, default: "300px"): Minimum width for the dialog box.
+- **`dialogBoxClasses`** (String, default: ""): Custom CSS classes for the dialog box.
 
 # 📌 Styling
 
@@ -80,7 +136,7 @@ You can customize the dialog appearance and button styles using props like btnCo
 Example:
 
 ```
-const result = await showDialog({
+const result = await showConfirmDialog({
   title: 'Confirm Action',
   message: 'Are you sure you want to continue?',
   btnConfirmText: 'Save',
@@ -92,4 +148,4 @@ const result = await showDialog({
 
 # 🔧 API
 
-showDialog(props) — Opens the dialog and returns a promise.
+showConfirmDialog(props) — Opens the dialog and returns a promise.

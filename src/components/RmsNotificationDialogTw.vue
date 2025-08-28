@@ -6,9 +6,9 @@
       <button v-if="showCloseIcon"
         :class="'absolute top-1 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold focus:outline-none ' + closeIconClasses"
         @click="close">&times;</button>
-      <div class="px-4 py-6">
-        <h2 :class="'text-lg font-semibold mb-2 ' + titleClass">{{ title }}</h2>
-        <p :class="'mb-4 ' + messageClass">{{ message }}</p>
+      <div class="px-4 py-3">
+        <h2 v-if="title" :class="'text-lg font-semibold mb-2 ' + titleClass">{{ title }}</h2>
+        <p v-if="message" :class="'mb-0 ' + messageClass">{{ message }}</p>
       </div>
     </div>
   </div>

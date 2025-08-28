@@ -47,6 +47,7 @@ async function openNotificationDialog() {
     message: 'This is a notification message.',
     timer: 5000, // closes after 5 seconds
     showCloseIcon: true,
+    position: 'top-right', // 'center', 'top-right', 'top-left', 'bottom-right', 'bottom-left'
   })
   console.log('Notification closed:', result)
 }
@@ -69,6 +70,7 @@ async function openNotificationDialogManual() {
     message: 'This notification will not autoclose.',
     disableAutoClose: true,
     showCloseIcon: true,
+    position: 'bottom-left', // Example position
   })
   console.log('Notification closed:', result)
 }
@@ -77,6 +79,26 @@ async function openNotificationDialogManual() {
 <template>
   <button @click="openNotificationDialogManual">Open Manual Notification Dialog</button>
 </template>
+```
+
+# 🧭 Notification Dialog Position
+
+You can set the position of the notification dialog using the `position` prop:
+
+- `center` (default)
+- `top-right`
+- `top-left`
+- `bottom-right`
+- `bottom-left`
+
+Example:
+
+```js
+showNotificationDialog({
+  title: 'Hello',
+  message: 'Positioned top right!',
+  position: 'top-right',
+})
 ```
 
 # 💡 How it works:

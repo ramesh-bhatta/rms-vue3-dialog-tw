@@ -20,14 +20,15 @@ async function openConfirmDialog() {
 async function openNotificationDialog() {
   try {
     const result = await showNotificationDialog({
-
-      titleClass: '',
+      title: 'Success',
+      titleClass: 'text-primary',
       message: 'This is a notification message.',
-      messageClass: 'text-primary',
+      messageClass: 'text-black',
       timer: 3000,
       showCloseIcon: true,
       disableAutoClose: true,
-      dialogBoxMinWidth: '400px'
+      dialogBoxMinWidth: '400px',
+      type: 'error'
     });
 
     console.log('Notification closed:', result);

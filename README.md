@@ -47,6 +47,7 @@ async function openNotificationDialog() {
     message: 'This is a notification message.',
     timer: 5000, // closes after 5 seconds
     showCloseIcon: true,
+    type: 'success', // success, warning, error
     position: 'top-right', // 'center', 'top-right', 'top-left', 'bottom-right', 'bottom-left'
   })
   console.log('Notification closed:', result)
@@ -98,6 +99,7 @@ showNotificationDialog({
   title: 'Hello',
   message: 'Positioned top right!',
   position: 'top-right',
+  type: 'success',
 })
 ```
 
@@ -141,6 +143,8 @@ The following props are available for the NotificationDialog component:
 
 - **`title`** (String, default: ""): The title displayed in the dialog.
 - **`message`** (String, default: ""): The message/content displayed in the dialog.
+- **`type`** (String, default: `'success'`): The type of notification. Options: `'success'`, `'warning'`, `'error'`. Determines the icon and color of the notification.
+- **`position`** (String, default: `'top-right'`): The position of the notification on the screen. Options: `'top-right'`, `'top-left'`, `'center'`, `'bottom-right'`, `'bottom-left'`.
 - **`timer`** (Number, default: `null`): Time in milliseconds before the dialog auto-closes. If not set, dialog will not auto-close unless `disableAutoClose` is false.
 - **`disableAutoClose`** (Boolean, default: `false`): If `true`, disables auto-close behavior.
 - **`showCloseIcon`** (Boolean, default: `true`): If `true`, a close button will be shown in the top-right corner of the dialog.

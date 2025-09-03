@@ -1,7 +1,7 @@
 <template>
   <!-- Notification overlay with click listener for closing the dialog -->
-  <div class="fixed top-6 right-6 z-50" @click="handleOverlayClick">
-    <div class="mx-auto px-4 sm:container">
+  <div :class="positionClass + ' z-50'" @click="handleOverlayClick">
+    <div class="mx-auto px-4 sm:container flex justify-center">
       <div :style="{ minWidth: dialogBoxMinWidth }"
         :class="'relative flex max-w-[422px] items-center rounded-lg border border-stroke bg-white p-3 py-[12px] shadow-pricing-4 sm:px-[30px] dark:border-dark-3 dark:bg-dark-2 dark:shadow-box-dark ' + dialogBoxClasses">
         <div class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-full" :class="{
@@ -66,7 +66,7 @@
 
 <script setup>
 // ...existing code...
-
+import { computed } from 'vue'
 // Define properties passed into the notification component
 const props = defineProps({
   title: { type: String, default: '' },
@@ -80,8 +80,24 @@ const props = defineProps({
   showCloseIcon: { type: Boolean, default: true },
   timer: { type: Number, default: 3000 },
   disableAutoClose: { type: Boolean, default: false },
-  type: { type: String, default: 'error' }, // success, warning, error
+  type: { type: String, default: 'success' }, // success, warning, error
+  position: { type: String, default: 'top-right' }, // top-right, top-left, center, bottom-right, bottom-left
 })
+
+const positionClass = computed(() => {
+  switch (props.position) {
+    case 'top-left':
+      return 'fixed top-6 left-6';
+    case 'center':
+      return 'fixed inset-0 flex items-center justify-center';
+    case 'bottom-right':
+      return 'fixed bottom-6 right-6';
+    case 'bottom-left':
+      return 'fixed bottom-6 left-6';
+    default:
+      return 'fixed top-6 right-6';
+  }
+});
 
 // Method to close the notification
 function close() {

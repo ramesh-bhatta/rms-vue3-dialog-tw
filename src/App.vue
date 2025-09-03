@@ -26,9 +26,10 @@ async function openNotificationDialog() {
       messageClass: 'text-black',
       timer: 3000,
       showCloseIcon: true,
-      disableAutoClose: true,
+      disableAutoClose: false,
       dialogBoxMinWidth: '400px',
-      type: 'error'
+      type: 'success',
+      position: 'top-left'
     });
 
     console.log('Notification closed:', result);

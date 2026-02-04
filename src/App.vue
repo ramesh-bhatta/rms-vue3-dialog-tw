@@ -23,7 +23,7 @@ const onUploadSuccess = (result) => {
     :maxNumberOfFiles="uploaderConfig.maxNumberOfFiles" :allowedFileTypes="uploaderConfig.allowedFileTypes"
     :closeModalOnClickOutside="uploaderConfig.closeModalOnClickOutside"
     :closeAfterFinish="uploaderConfig.closeAfterFinish" :autoProceed="uploaderConfig.autoProceed"
-    :proudlyDisplayPoweredByUppy="uploaderConfig.showPoweredBy" :buttonText="'Upload Adgroup Images'"
+    :proudlyDisplayPoweredByUppy="uploaderConfig.showPoweredBy" :buttonText="'Upload Adgroup Files'"
     :theme="uploaderConfig.theme" :allowedMetaFields="uploaderConfig.allowedMetaFields" :inline="uploaderConfig.inline"
     @uploaded="onUploadSuccess">
     <!-- <template v-slot:btn-icon>
@@ -31,19 +31,13 @@ const onUploadSuccess = (result) => {
         size="is-medium"></b-icon>
       </template> -->
   </UppyCloudinaryUploader>
-  <UppyCloudinaryUploader :btnTriggerClass="'upload-btn2'" :cloudName="uploaderConfig.cloudName"
-    :preset="uploaderConfig.preset" :tags="uploaderConfig.tags" :maxFileSize="uploaderConfig.maxFileSize"
-    :maxNumberOfFiles="uploaderConfig.maxNumberOfFiles" :allowedFileTypes="uploaderConfig.allowedFileTypes"
-    :closeModalOnClickOutside="uploaderConfig.closeModalOnClickOutside"
-    :closeAfterFinish="uploaderConfig.closeAfterFinish" :autoProceed="uploaderConfig.autoProceed"
-    :proudlyDisplayPoweredByUppy="uploaderConfig.showPoweredBy" :buttonText="'Upload Video'"
-    :theme="uploaderConfig.theme" :allowedMetaFields="uploaderConfig.allowedMetaFields" :inline="uploaderConfig.inline"
-    @uploaded="onUploadSuccess">
-    <!-- <template v-slot:btn-icon>
-        <b-icon icon="cloud-upload-alt"
-        size="is-medium"></b-icon>
-      </template> -->
-  </UppyCloudinaryUploader>
+  <!-- <UppyCloudinaryUploader 
+      :btnTriggerClass="'upload-btn2'" 
+      :cloudName="uploaderConfig.cloudName"
+      :preset="uploaderConfig.preset" 
+      :buttonText="'Upload Video'"
+      @uploaded="onUploadSuccess"
+    /> -->
 </template>
 
 

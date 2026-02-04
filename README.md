@@ -71,10 +71,10 @@ Below is the list of available props for the Vue 3 Uppy Cloudinary Uploader comp
 | `btnTriggerClass`             | ❌           | `'uppy-trigger'`                            | CSS class for the upload button trigger.                |
 | `buttonText`                  | ❌           | `'Upload Files'`                            | Text displayed on the upload button.                    |
 | `buttonClass`                 | ❌           | `'btn'`                                     | CSS class for styling the upload button.                |
-| `maxFileSize`                 | ❌           | `4 * 1024 * 1024` (4MB)                     | Maximum allowed file size.                              |
+| `maxFileSize`                 | ❌           | `100 * 1024 * 1024` (4MB)                     | Maximum allowed file size.                              |
 | `maxNumberOfFiles`            | ❌           | `20`                                        | Maximum number of files allowed for upload.             |
 | `minNumberOfFiles`            | ❌           | `1`                                         | Minimum number of files required.                       |
-| `allowedFileTypes`            | ❌           | `['image/png', 'image/jpeg']`               | Allowed file types.                                     |
+| `allowedFileTypes`            | ❌           | `['image/png', 'image/jpeg'],['video/*']`               | Allowed file types.                                     |
 | `closeModalOnClickOutside`    | ❌           | `true`                                      | Whether the modal should close when clicking outside.   |
 | `closeAfterFinish`            | ❌           | `true`                                      | Whether the modal should close after upload completion. |
 | `note`                        | ❌           | `''`                                        | Custom note shown to users in the uploader.             |

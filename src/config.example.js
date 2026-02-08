@@ -7,7 +7,7 @@ export default {
     btnTriggerClass: "uppy-trigger", // optional default 'uppy-trigger'
     buttonText: "Upload Files", // optional default 'Upload Files'
     buttonClass: "btn is-primary", // optional default 'btn'
-    maxFileSize: 4 * 1024 * 1024, // optional default 4MB
+    maxFileSize: 4 * 1024 * 1024, // optional default 100MB
     maxNumberOfFiles: 20, //optional default 20
     minNumberOfFiles: 1, //optional default 1
     allowedFileTypes: ["image/png", "image/jpeg"], // optional default ['image/png', 'image/jpeg']

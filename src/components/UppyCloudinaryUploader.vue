@@ -17,7 +17,7 @@ const props = defineProps({
   btnTriggerClass: { type: String, default: "uppy-trigger" }, // Button Trigger Class
   buttonText: { type: String, default: "Upload Files" }, // Button Text
   buttonClass: { type: String, default: "btn" }, // Custom Button Class
-  maxFileSize: { type: Number, default: 100 * 1024 * 1024 }, // Max File Size (4MB default)
+  maxFileSize: { type: Number, default: 100 * 1024 * 1024 }, // Max File Size (100MB default)
   maxNumberOfFiles: { type: Number, default: 20 }, // Max number of files
   minNumberOfFiles: { type: Number, default: 1 }, // Min number of files
   allowedFileTypes: { type: Array, default: () => ["image/png", "image/jpeg", "video/*"] }, // Allowed File Types

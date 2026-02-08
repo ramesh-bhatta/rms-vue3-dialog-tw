@@ -31,13 +31,8 @@ const onUploadSuccess = (result) => {
         size="is-medium"></b-icon>
       </template> -->
   </UppyCloudinaryUploader>
-  <!-- <UppyCloudinaryUploader 
-      :btnTriggerClass="'upload-btn2'" 
-      :cloudName="uploaderConfig.cloudName"
-      :preset="uploaderConfig.preset" 
-      :buttonText="'Upload Video'"
-      @uploaded="onUploadSuccess"
-    /> -->
+  <UppyCloudinaryUploader :btnTriggerClass="'upload-btn2'" :cloudName="uploaderConfig.cloudName"
+    :preset="uploaderConfig.preset" :buttonText="'Upload Video'" @uploaded="onUploadSuccess" />
 </template>
 
 

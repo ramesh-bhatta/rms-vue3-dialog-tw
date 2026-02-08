@@ -17,10 +17,10 @@ const props = defineProps({
   btnTriggerClass: { type: String, default: "uppy-trigger" }, // Button Trigger Class
   buttonText: { type: String, default: "Upload Files" }, // Button Text
   buttonClass: { type: String, default: "btn" }, // Custom Button Class
-  maxFileSize: { type: Number, default: 4 * 1024 * 1024 }, // Max File Size (4MB default)
+  maxFileSize: { type: Number, default: 100 * 1024 * 1024 }, // Max File Size (4MB default)
   maxNumberOfFiles: { type: Number, default: 20 }, // Max number of files
   minNumberOfFiles: { type: Number, default: 1 }, // Min number of files
-  allowedFileTypes: { type: Array, default: () => ["image/png", "image/jpeg"] }, // Allowed File Types
+  allowedFileTypes: { type: Array, default: () => ["image/png", "image/jpeg", "video/*"] }, // Allowed File Types
   closeModalOnClickOutside: { type: Boolean, default: true }, // Close Modal on Click Outside
   closeAfterFinish: { type: Boolean, default: true }, // Close Modal After Upload
   note: { type: String, default: "" }, // Note to Users
@@ -66,7 +66,7 @@ onMounted(() => {
 
   // XHR Upload for Cloudinary
   uppy.use(XHRUpload, {
-    endpoint: `https://api.cloudinary.com/v1_1/${props.cloudName}/image/upload`,
+    endpoint: `https://api.cloudinary.com/v1_1/${props.cloudName}/auto/upload`,
     fieldName: "file",
     formData: true,
     allowedMetaFields: ["upload_preset", "tags"],
@@ -76,7 +76,7 @@ onMounted(() => {
   // events listener
   uppy.on("file-added", file => {
     console.log("FILE ADDED ON DASHBOARD", file);
-    this.uppy.setFileMeta(file.id, {
+    uppy.setFileMeta(file.id, {
       file: file.data,
       upload_preset: props.preset,
       tags: props.tags
@@ -94,8 +94,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (uppy.value) {
     console.log("Destroying Uppy Instance");
-    uppy.value.close();
-    uppy.value = null;
+    uppy.close();
+    uppy = null;
   }
 });
 
